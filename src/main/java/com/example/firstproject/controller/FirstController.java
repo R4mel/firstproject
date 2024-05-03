@@ -11,6 +11,5 @@ public class FirstController {
         // model 객체가 "홍팍" 값을 "username"에 연결해 웹 브라우저로 보냄
         model.addAttribute("username", "홍팍");
         return "greetings"; // greetings.mustache 파일 반환
-
     }
 }
