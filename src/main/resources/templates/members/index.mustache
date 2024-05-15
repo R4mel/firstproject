@@ -1,0 +1,26 @@
+{{>layouts/footer}}
+
+<table class="table">
+    <thead>
+
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Email</th>
+        <th scope="col">Password</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#memberList}} <!--모델에 등록한 member는 뷰 페이지에서 mustache문법인 이중줄괄호를 이용해 출력한다.-->
+    <tr>
+        <th>{{id}}</th>
+        <td><a href="/members/{{id}}">{{email}}</a></td>
+        <td>{{password}}</td>
+    </tr>
+    {{/memberList}}
+    <!--변수가 데이터 묶음일 경우 그 안쪽에 있는 코드를 반복 실행한다.-->
+    </tbody>
+</table>
+
+<a href="/members/new">회원가입</a>
+
+{{>layouts/header}}
