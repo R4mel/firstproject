@@ -5,9 +5,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @AllArgsConstructor // lombok: 생성자
+@NoArgsConstructor // lombok: 기본 생성자
 @ToString // lombok: toString
 @Entity // JPA에서 제공하는 어노테이션, 이 어노테이션이 붙은 클래스를 기반으로 DB에 테이블 생성
 public class Article {
