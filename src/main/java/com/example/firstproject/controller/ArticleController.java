@@ -83,6 +83,7 @@ public class ArticleController {
         Article articleEntity = form.toEntity();
         log.info(articleEntity.toString());
         // 2. 엔티티를 DB에 저장하기
+        // DB에서 기존 데이터 가져오기
         Article target = articleRepository.findById(articleEntity.getId()).orElse(null);
         if(target != null) {
             articleRepository.save(articleEntity); // 엔티티를 DB에 저장(갱신)
