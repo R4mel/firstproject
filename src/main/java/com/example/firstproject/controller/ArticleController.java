@@ -77,7 +77,7 @@ public class ArticleController {
     }
 
     @PostMapping("/articles/update")
-    public String updateArticle(ArticleForm form) { // 매개변수로 DTO 받아 오기
+    public String update(ArticleForm form) { // 매개변수로 DTO 받아 오기
         log.info(form.toString());
         // 1. DTO를 엔티티로 변환하기
         Article articleEntity = form.toEntity();
