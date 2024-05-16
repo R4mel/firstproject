@@ -7,11 +7,11 @@ import lombok.ToString;
 @AllArgsConstructor // lombok: 생성자
 @ToString // lombok: toString
 public class MemberForm {
+    private Long id;
     private String email;
-
     private String password;
 
     public Member toEntity() {
-        return new Member(null, email, password);
+        return new Member(id, email, password);
     }
 }

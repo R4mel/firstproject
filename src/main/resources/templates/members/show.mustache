@@ -12,14 +12,14 @@
     <tbody>
     {{#member}} <!--모델에 등록한 member는 뷰 페이지에서 mustache문법인 이중줄괄호를 이용해 출력한다.-->
     <tr>
-        <th>{{id}}</th>
+            <th>{{id}}</th>
         <td>{{email}}</td>
         <td>{{password}}</td>
     </tr>
     {{/member}}
     </tbody>
 </table>
-
+<a href="/members/{{member.id}}/edit" class="btn btn-primary">Edit</a>
 <a href="/members">Go to member List</a>
 
 {{>layouts/footer}}
