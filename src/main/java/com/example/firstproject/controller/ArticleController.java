@@ -85,7 +85,7 @@ public class ArticleController {
         // 2. 엔티티를 DB에 저장하기
         Article target = articleRepository.findById(articleEntity.getId()).orElse(null);
         if(target != null) {
-            articleRepository.save(target); // 엔티티를 DB에 저장(갱신)
+            articleRepository.save(articleEntity); // 엔티티를 DB에 저장(갱신)
         }
         // 3. 수정 결과 페이지로 리다이렉트하기
         return "redirect:/articles/" + articleEntity.getId();
