@@ -8,18 +8,17 @@ import lombok.ToString;
 
 @AllArgsConstructor // lombok: 생성자
 @NoArgsConstructor
-@Getter
 @ToString // lombok: toString
 @Entity
-public class Member {
+public class Coffee {
+    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
     private Long id;
 
     @Column
-    private String email;
+    private String name;
 
     @Column
-    private String password;
+    private Integer price;
 }

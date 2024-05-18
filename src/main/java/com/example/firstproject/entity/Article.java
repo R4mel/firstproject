@@ -1,9 +1,6 @@
 package com.example.firstproject.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,7 +13,7 @@ import lombok.ToString;
 public class Article {
     @Getter // lombok: getter
     @Id // 대푯값
-    @GeneratedValue // 대푯값을 자동으로 생성 및 증가
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // 대푯값을 자동으로 생성 및 증가
     private Long id;
 
     @Column // DB 테이블의 각 열과 연결
@@ -25,4 +22,12 @@ public class Article {
     @Column // DB 테이블의 각 열과 연결
     private String content;
 
+    public void patch(Article article) {
+        if(article.title != null){
+            this.title = article.title;
+        }
+        if(article.content != null){
+            this.content = article.content;
+        }
+    }
 }
