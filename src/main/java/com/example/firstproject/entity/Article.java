@@ -1,17 +1,14 @@
 package com.example.firstproject.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 @AllArgsConstructor // lombok: 생성자
 @NoArgsConstructor // lombok: 기본 생성자
 @ToString // lombok: toString
 @Entity // JPA에서 제공하는 어노테이션, 이 어노테이션이 붙은 클래스를 기반으로 DB에 테이블 생성
+@Getter // lombok: getter
 public class Article {
-    @Getter // lombok: getter
     @Id // 대푯값
     @GeneratedValue(strategy = GenerationType.IDENTITY) // 대푯값을 자동으로 생성 및 증가
     private Long id;

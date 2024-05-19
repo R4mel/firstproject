@@ -10,8 +10,8 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString // lombok: toString
 @Entity
+@Getter
 public class Coffee {
-    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,4 +21,13 @@ public class Coffee {
 
     @Column
     private Integer price;
+
+    public void patch(Coffee coffee) {
+        if (coffee.name != null) {
+            this.name = coffee.name;
+        }
+        if (coffee.price != null) {
+            this.price = coffee.price;
+        }
+    }
 }

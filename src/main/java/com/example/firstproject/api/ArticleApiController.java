@@ -21,19 +21,30 @@ public class ArticleApiController {
 
     // GET
     @GetMapping("/api/articles")
-    List<Article> index() {
-        return articleRepository.findAll();
+    public ResponseEntity<List<Article>> index() {
+        List<Article> articleList = articleRepository.findAll();
+        if(articleList.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(articleList);
     }
 
     @GetMapping("/api/articles/{id}")
-    Article show(@PathVariable Long id) {
-        return articleRepository.findById(id).orElse(null);
+    public ResponseEntity<Article> show(@PathVariable Long id) {
+        Article article = articleRepository.findById(id).orElse(null);
+        return (article != null) ? ResponseEntity.status(HttpStatus.OK).body(article) :
+                ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
     }
 
     // POST
     @PostMapping("/api/articles")
-    Article create(@RequestBody ArticleForm dto) { // Body에 실어 보내는 데이터를 매개변수로 받는다.
-        return articleRepository.save(dto.toEntity());
+    public ResponseEntity<Article> create(@RequestBody ArticleForm dto) { // Body에 실어 보내는 데이터를 매개변수로 받는다.
+        Article article = dto.toEntity();
+        if(article.getId() != null){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
+        Article created = articleRepository.save(article);
+        return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
 
     // PATCH
