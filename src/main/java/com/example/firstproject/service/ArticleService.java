@@ -28,7 +28,6 @@ public class ArticleService {
         return articleRepository.findById(id).orElse(null);
     }
 
-
     public Article create(ArticleForm dto) {
         Article article = dto.toEntity();
         if (article.getId() != null) {
