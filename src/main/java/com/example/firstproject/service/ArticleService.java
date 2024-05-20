@@ -45,7 +45,7 @@ public class ArticleService {
             return null;
         }
         target.patch(article);
-        return articleRepository.save(article);
+        return articleRepository.save(target);
     }
 
 
